@@ -22,5 +22,9 @@ function register_product_description_on_tabs_widget( $widgets_manager ) {
 	require_once( __DIR__ . '/widgets/Product-Category-Image.php' );
 	$widgets_manager->register( new \Product_Category_Image() );
 
+	// Product Category Description Widget
+	require_once( __DIR__ . '/widgets/Product-Category-Description.php' );
+	$widgets_manager->register( new \Product_Category_Description() );
+
 }
 add_action( 'elementor/widgets/register', 'register_product_description_on_tabs_widget' );
