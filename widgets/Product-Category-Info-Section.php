@@ -5,14 +5,14 @@ use Elementor\Group_Control_Typography;
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-class Product_Category_Description extends Widget_Base {
+class ProductCategoryInfoSection extends Widget_Base {
 
     public function get_name() {
-        return 'product_category_description';
+        return 'product_category_info_section';
     }
 
     public function get_title() {
-        return __( 'Product Category Description', 'elementor-mri-addon' );
+        return __( 'Product Category Info Section', 'elementor-mri-addon' );
     }
 
     public function get_icon() {
@@ -55,15 +55,21 @@ class Product_Category_Description extends Widget_Base {
     }
 
     protected function render() {
+
         if ( is_product_category() ) {
             $category = get_queried_object();
+            $thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
+            $image_url = wp_get_attachment_url( $thumbnail_id );
             $description = $category->description;
 
+            echo '<div class="product-category-info-section">';
             if ( ! empty( $description ) ) {
                 echo '<div id="description-description">' . wp_kses_post( wpautop( $description ) ) . '</div>';
             }
-        } else {
-            echo __( 'This widget only works on product category pages.', 'elementor-mri-addon' );
+            if ( $image_url ) {
+                echo '<img class="product-category-image" src="' . esc_url( $image_url ) . '" alt="' . esc_attr( $category->name ) . '" />';
+            }
+            echo '</div>';
         }
     }
 }

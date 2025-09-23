@@ -41,5 +41,9 @@ function register_product_description_on_tabs_widget( $widgets_manager ) {
 	// Product Category Hero Widget
 	require_once( __DIR__ . '/widgets/Product-Category-Hero.php' );
 	$widgets_manager->register( new \Product_Category_Hero() );
+
+	// Product Category Info Section Widget
+	require_once( __DIR__ . '/widgets/Product-Category-Info-Section.php' );
+	$widgets_manager->register( new \ProductCategoryInfoSection() );
 }
 add_action( 'elementor/widgets/register', 'register_product_description_on_tabs_widget' );

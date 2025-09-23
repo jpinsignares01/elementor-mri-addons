@@ -61,8 +61,6 @@ class Product_Category_Description_After extends Widget_Base {
 
             if ( ! empty( $description_after ) ) {
                 echo '<div id="description-after-content">' . wp_kses_post( wpautop( $description_after ) ) . '</div>';
-            } else {
-                echo __( 'No description after content found.', 'elementor-mri-addon' );
             }
         } else {
             echo __( 'This widget only works on product category pages.', 'elementor-mri-addon' );

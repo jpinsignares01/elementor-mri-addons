@@ -30,8 +30,6 @@ class Product_Category_Image extends Widget_Base {
 
             if ( $image_url ) {
                 echo '<img src="' . esc_url( $image_url ) . '" alt="' . esc_attr( $category->name ) . '" />';
-            } else {
-                echo __( 'No category image found.', 'elementor-mri-addon' );
             }
         } else {
             echo __( 'This widget only works on product category pages.', 'elementor-mri-addon' );
