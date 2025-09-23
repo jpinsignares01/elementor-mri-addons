@@ -37,5 +37,9 @@ function register_product_description_on_tabs_widget( $widgets_manager ) {
 	// Product Category Page Header Background Widget
 	require_once( __DIR__ . '/widgets/Product-Category-Page-Header-Background.php' );
 	$widgets_manager->register( new \Product_Category_Page_Header_Background() );
+
+	// Product Category Hero Widget
+	require_once( __DIR__ . '/widgets/Product-Category-Hero.php' );
+	$widgets_manager->register( new \Product_Category_Hero() );
 }
 add_action( 'elementor/widgets/register', 'register_product_description_on_tabs_widget' );
